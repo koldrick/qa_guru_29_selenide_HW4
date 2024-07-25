@@ -23,8 +23,9 @@ public class SelenideGithubWikiTest {
     void pagesShouldHaveSoftAssertionsAndSoftAssertionsShouldHaveJUnit5Example(){
         Selenide.open("/selenide/selenide");
         $("#wiki-tab").click();
-        $(".markdown-body").shouldHave(text("Soft assertions"));
-        $(byText("Soft assertions")).click();
+        $(".wiki-more-pages-link").$("[type='button']").click();
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").$(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("""
                 @ExtendWith({SoftAssertsExtension.class})
                 class Tests {
